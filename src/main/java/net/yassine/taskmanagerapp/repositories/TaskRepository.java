@@ -8,4 +8,10 @@ import java.util.List;
 
 public interface TaskRepository extends JpaRepository<Task, Long> {
     List<Task> findByUserUsername(String username);
+
+    interface TaskService {
+    }
+
+    interface UserService {
+    }
 }
