@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Details</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+        /* Global Styles */
+        body {
+            background-color: #f0f2f5;
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: #6200ee;
+            color: #fff;
+        }
+        .navbar .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #fff;
+        }
+
+        /* Card Styling */
+        .card {
+            background-color: #fff;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Header */
+        .details-header {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #6200ee;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Content */
+        .details-content .label {
+            font-weight: 500;
+            color: #6c757d;
+        }
+
+        .details-content .value {
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        /* Buttons */
+        .btn-custom {
+            font-weight: 500;
+            color: #fff;
+            background-color: #6200ee;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: #3700b3;
+            transform: scale(1.05);
+        }
+
+        .btn-secondary {
+            font-weight: 500;
+            color: #fff;
+            background-color: #03dac6;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background-color: #018786;
+            transform: scale(1.05);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .details-header {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="/">Task Manager</a>
+    </div>
+</nav>
+
+<!-- Task Details Section -->
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card">
+                <!-- Header -->
+                <div class="details-header">Task Details</div>
+
+                <!-- Content -->
+                <div class="details-content">
+                    <div class="mb-3">
+                        <span class="label">Title:</span>
+                        <span class="value d-block" th:text="${task.title}">Example Task Title</span>
+                    </div>
+                    <div class="mb-3">
+                        <span class="label">Description:</span>
+                        <span class="value d-block" th:text="${task.description}">Example task description goes here.</span>
+                    </div>
+                </div>
+
+                <!-- Buttons -->
+                <div class="text-center mt-4">
+                    <a href="/" class="btn btn-secondary px-4 me-2">Back to List</a>
+                    <a href="/" class="btn btn-custom px-4">Edit Task</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
