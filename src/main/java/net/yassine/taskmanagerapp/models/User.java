@@ -3,6 +3,8 @@ package net.yassine.taskmanagerapp.models;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class User {
@@ -16,6 +18,6 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-
-
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Task> tasks = new ArrayList<>();
 }
