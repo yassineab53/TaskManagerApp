@@ -1,4 +1,4 @@
-# Spring Boot To-Do List App
+# Spring Boot Task Manager
 
 A robust and secure Task Manager application built with Spring Boot, Thymeleaf, and Spring Security. This app enables users to efficiently manage tasks with features like task creation, assignment, and progress tracking, along with user authentication and account management.
 
