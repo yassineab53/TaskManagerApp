@@ -2,6 +2,7 @@ package net.yassine.taskmanagerapp.security;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -17,7 +18,14 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
 
-    //    @Autowired
+    /*private final CustomUserDetailsService userDetailsService;
+
+    public SecurityConfig(CustomUserDetailsService userDetailsService) {
+        this.userDetailsService = userDetailsService;
+    }*/
+
+    //@Qualifier("CustomUserDetailsService")
+    //@Autowired
     private UserDetailsService userDetailsService;
 
     @Bean
