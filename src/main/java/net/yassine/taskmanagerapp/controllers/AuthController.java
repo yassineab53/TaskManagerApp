@@ -53,7 +53,6 @@ public class AuthController {
 
     @GetMapping("/signin")
     public String showLoginForm() {
-        //return "login"; // This will return the login.html Thymeleaf template
-        return "signin";
+        return "login"; // This will return the login.html Thymeleaf template
     }
 }
