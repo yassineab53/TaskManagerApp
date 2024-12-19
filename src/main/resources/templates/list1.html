@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f0f2f5;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .navbar {
+            background-color: #6200ee;
+            color: #fff;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #fff;
+        }
+
+        .table thead {
+            background-color: #6200ee;
+            color: #fff;
+        }
+
+        .table-hover tbody tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .btn-custom {
+            font-weight: 500;
+            color: #fff;
+            background-color: #6200ee;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: #3700b3;
+            transform: scale(1.05);
+        }
+
+        .btn-edit {
+            background-color: #ffb300;
+            color: #fff;
+        }
+        .btn-delete {
+            background-color: #e53935;
+            color: #fff;
+        }
+
+        h1 {
+            color: #6200ee;
+            font-weight: bold;
+        }
+
+        .container {
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="#">Task Manager</a>
+        <div class="ms-auto">
+            <a class="btn btn-danger" href="/logout">Logout</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Content -->
+<div class="container">
+    <h1 class="text-center mb-4">Task Manager</h1>
+
+    <div class="text-end mb-3">
+        <a href="/tasks/create" class="btn btn-custom px-4">Create New Task</a>
+    </div>
+
+    <table class="table table-hover table-bordered text-center align-middle">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="task : ${tasks}">
+            <td th:text="${task.title}"></td>
+            <td th:text="${task.description}"></td>
+            <td>
+                <a class="btn btn-sm btn-primary me-1" th:href="@{/{id}(id=${task.id})}">View</a>
+                <a class="btn btn-sm btn-warning btn-edit me-1" th:href="@{/{id}/edit(id=${task.id})}">Edit</a>
+                <form th:action="@{/{id}/delete(id=${task.id})}" method="post" style="display: inline;">
+                    <button type="submit" class="btn btn-sm btn-danger btn-delete">Delete</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
